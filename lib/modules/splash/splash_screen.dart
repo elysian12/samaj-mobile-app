@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void moveToNextScreen() async {
     await Future.delayed(const Duration(seconds: 2));
-    getIt<AppRouter>().replace(const DirectoryRoute());
+    getIt<AppRouter>().replace(const RateAppRoute());
   }
 
   @override
