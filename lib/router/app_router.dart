@@ -18,6 +18,9 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ChatRoute.page, path: CHAT),
         AutoRoute(page: NewMessageRoute.page, path: NEW_MESSAGE),
         AutoRoute(page: LoginRoute.page),
+        AutoRoute(page: DirectoryRoute.page),
+        AutoRoute(page: PickCountryCityRoute.page),
+        AutoRoute(page: MemberListRoute.page),
       ];
 
   static const String DASHBOARD = '/dashboard';

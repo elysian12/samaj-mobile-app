@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:patel_samaj_app/core/styles/style.dart';
 import 'package:patel_samaj_app/data/notifiers/language_notifier.dart';
 import 'package:provider/provider.dart';
 import 'data/di/service_locator.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           routerConfig: AppRouter().config(),
           title: 'Patel Samaj App',
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryBlue),
             useMaterial3: true,
             scaffoldBackgroundColor: Colors.white,
             appBarTheme: const AppBarTheme(

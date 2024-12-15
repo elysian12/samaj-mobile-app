@@ -3,5 +3,16 @@
   "app_name": "પટેલ સમાજ",
   "exampleToShowLoader": "ઉદાહરણ દર્શાવવા લોડર",
   "changeLanguage": "ભાષા બદલવા",
-  "developed_with_love": "તમારી પ્રેમની સાથે વિકાસિત છે"
+  "developed_with_love": "તમારી પ્રેમની સાથે વિકાસિત છે",
+  "directory": "ડિરેક્ટરી",
+  "country": "દેશ",
+  "city": "શહેર",
+  "village": "ગામ",
+  "mandal_amenabad": "મંડળ (અમેનાબાદમાં)",
+  "mandal_others": "મંડળ (અન્ય)",
+  "all": "બધા",
+  "male": "પુરુષ",
+  "female": "સ્ત્રી",
+  "name": "નામ",
+  "phone_number": "ફોન નંબર"
 }

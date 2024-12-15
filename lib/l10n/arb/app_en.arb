@@ -3,5 +3,17 @@
   "app_name": "Patel Samaj",
   "exampleToShowLoader": "Example to show loader",
   "changeLanguage": "Change Language",
-  "developed_with_love": "Developed with ❤️ by"
+  "developed_with_love": "Developed with ❤️ by",
+  "directory": "Directory",
+  "country": "Country",
+  "city": "City",
+  "village": "Village",
+  "mandal_amenabad": "Mandal (in Amenabad)",
+  "mandal_others": "Mandal (Others)",
+  "all": "All",
+  "male": "Male",
+  "female": "Female",
+  "name": "Name",
+  "phone_number": "Phone No."
+  
 }
