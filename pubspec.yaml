@@ -9,6 +9,7 @@ environment:
   sdk: ^3.5.2
 
 dependencies:
+  animate_do: ^3.3.4
   auto_route: ^9.2.2
   cupertino_icons: ^1.0.8
   flutter:
@@ -30,3 +31,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+  assets:
+    - assets/
+    - assets/images/

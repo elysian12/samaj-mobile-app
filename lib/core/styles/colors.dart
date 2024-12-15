@@ -3,8 +3,8 @@ part of 'style.dart';
 abstract class AppColors {
   static const background = Color(0xff121212);
   static const fontColor = Color(0xff121212);
-  static const primaryPurple = Color(0xff632556);
-  static const secondaryPurple = Color(0xff901D28);
+  static const primaryPurple = Color(0xff9181F4);
+  static const secondaryPurple = Color(0xff5038ED);
   static const yellow = Color(0xffFFEC3F);
   static const white = Color(0xffFDFFFF);
   static const greyLight = Color(0xff252525);
@@ -17,8 +17,8 @@ abstract class AppColors {
 
   static const backGroundGradient = LinearGradient(
     colors: [
-      secondaryPurple,
       primaryPurple,
+      secondaryPurple,
     ],
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
