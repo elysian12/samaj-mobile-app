@@ -1,6 +1,6 @@
 part of 'style.dart';
 
-abstract class AppTextStyle {
+class AppTextStyle {
   static const TextStyle _baseTextStyle = TextStyle(
     fontFamily: 'PlusJakartaSans',
     color: AppColors.background,

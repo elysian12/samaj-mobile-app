@@ -19,10 +19,17 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(390, 844),
       builder: (context, child) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'Patel Samaj App',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
+          scaffoldBackgroundColor: Colors.white,
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.white,
+            titleTextStyle: TextStyle(color: Colors.black),
+          ),
+          cardColor: Colors.white,
         ),
         routerConfig: _appRouter.config(),
       ),
