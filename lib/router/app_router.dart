@@ -24,6 +24,8 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: RateAppRoute.page),
         AutoRoute(page: NotificationControlRoute.page),
         AutoRoute(page: AdvertisementRoute.page),
+        AutoRoute(page: SocialOrganizationRoute.page),
+        AutoRoute(page: SocialMemberListRoute.page),
       ];
 
   static const String DASHBOARD = '/dashboard';
