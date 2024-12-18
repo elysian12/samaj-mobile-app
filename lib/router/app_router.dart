@@ -8,9 +8,9 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: false),
-        AutoRoute(page: DashboardRoute.page, path: DASHBOARD, initial: false),
+        AutoRoute(page: DashboardRoute.page, path: DASHBOARD, initial: true),
         AutoRoute(page: FamilyRoute.page, path: FAMILY),
-        AutoRoute(page: OccupationRoute.page, path: OCCUPATION, initial: true),
+        AutoRoute(page: OccupationRoute.page, path: OCCUPATION, initial: false),
         AutoRoute(page: PostsRoute.page, path: POST),
         AutoRoute(page: SearchMemberRoute.page, path: SEARCH_MEMBER),
         AutoRoute(page: UserProfile.page, path: PROFILE, initial: false),

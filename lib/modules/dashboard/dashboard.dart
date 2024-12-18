@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patel_samaj_app/core/styles/style.dart';
+import 'package:animate_do/animate_do.dart';
 
 @RoutePage()
 class DashboardScreen extends StatelessWidget {
@@ -9,45 +11,85 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
+      body: SafeArea(
+        child: Column(
+          children: [
+            _buildAppBar(),
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
+                  FadeIn(
+                    duration: const Duration(milliseconds: 800),
+                    child: _buildImageContainer(),
+                  ),
+                  const SizedBox(height: 20),
+                  FadeInUp(
+                    duration: const Duration(milliseconds: 600),
+                    child: _buildCategories(),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAppBar() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+            icon: const Icon(Icons.menu, color: Colors.white),
+            onPressed: () {},
+          ),
           _buildLanguageSelector(),
         ],
       ),
-      drawer: const Drawer(),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
+    );
+  }
+
+  Widget _buildCategories() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: Column(
         children: [
-          _buildImageContainer(),
-          const SizedBox(height: 20),
           _buildCategoryRow([
-            _buildCategoryItem('My Profile', Icons.person),
-            _buildCategoryItem('My family', Icons.family_restroom),
-            _buildCategoryItem('Admin. Committee', Icons.admin_panel_settings),
+            _buildCategoryItem('My Profile', 'assets/icons/ic_profile.png'),
+            _buildCategoryItem('My family', 'assets/icons/ic_family.png'),
+            _buildCategoryItem(
+                'Admin.\nCommittee', 'assets/icons/ic_committee.png'),
           ]),
           const SizedBox(height: 16),
           _buildCategoryRow([
-            _buildCategoryItem('Search Members', Icons.search),
-            _buildCategoryItem('Directory', Icons.list),
-            _buildCategoryItem('Occupation', Icons.work),
+            _buildCategoryItem(
+                'Search\nMembers', 'assets/icons/ic_search_members.png'),
+            _buildCategoryItem('Directory', 'assets/icons/ic_directory.png'),
+            _buildCategoryItem('Occupation', 'assets/icons/ic_occupation.png'),
           ]),
           const SizedBox(height: 16),
           _buildCategoryRow([
-            _buildCategoryItem('Post', Icons.post_add),
-            _buildCategoryItem('Useful', Icons.star),
-            _buildCategoryItem('Photo Gallery', Icons.photo),
+            _buildCategoryItem('Post', 'assets/icons/ic_post.png'),
+            _buildCategoryItem('Useful', 'assets/icons/ic_useful.png'),
+            _buildCategoryItem('Photo\nGallery', 'assets/icons/ic_photo.png'),
           ]),
           const SizedBox(height: 16),
           _buildCategoryRow([
-            _buildCategoryItem('Messages', Icons.message),
+            _buildCategoryItem('Messages', 'assets/icons/ic_message.png'),
             const SizedBox(width: 50),
-            _buildCategoryItem('Donation', Icons.monetization_on),
+            _buildCategoryItem('Donation', 'assets/icons/ic_donate.png'),
           ], mainAxisAlignment: MainAxisAlignment.center),
           const SizedBox(height: 16),
           _buildCategoryRow([
-            _buildCategoryItem('Besna', Icons.card_giftcard),
-            _buildCategoryItem('Congrats.', Icons.celebration),
-            _buildCategoryItem('Shradhanjali', Icons.celebration),
+            _buildCategoryItem('Besna', 'assets/icons/ic_besna.png'),
+            _buildCategoryItem(
+                'Congrats.', 'assets/icons/ic_congratulation.png'),
+            _buildCategoryItem(
+                'Shradhanjali', 'assets/icons/ic_shradhanjali.png'),
           ]),
         ],
       ),
@@ -103,38 +145,43 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCategoryRow(List<Widget> items, {MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceBetween}) {
+  Widget _buildCategoryRow(List<Widget> items,
+      {MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceBetween}) {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: items,
     );
   }
 
-  Widget _buildCategoryItem(String title, IconData icon) {
+  Widget _buildCategoryItem(String title, String icon) {
     return Container(
-      height: 115,
-      width: 115,
+      height: 90.r,
+      width: 90.r,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(50),
+        color: Colors.white.withOpacity(0.9),
+        shape: BoxShape.circle,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: const Offset(0, 3),
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 10,
+            offset: const Offset(0, 4),
           ),
         ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 40),
+          Image.asset(
+            icon,
+            width: 28.r,
+            height: 28.r,
+          ),
           const SizedBox(height: 8),
           Text(
             title,
             textAlign: TextAlign.center,
-            style: AppTextStyle.caption,
+            style: AppTextStyle.labelSmall,
             overflow: TextOverflow.ellipsis,
           ),
         ],
