@@ -33,7 +33,7 @@ class ChatRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'ChatRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i1.ChatScreen();
@@ -52,7 +52,7 @@ class DashboardRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'DashboardRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i2.DashboardScreen();
@@ -71,7 +71,7 @@ class FamilyRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'FamilyRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i3.FamilyScreen();
@@ -80,9 +80,75 @@ class FamilyRoute extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.LoginScreen]
-class LoginRoute extends _i12.PageRouteInfo<void> {
-  const LoginRoute({List<_i12.PageRouteInfo>? children})
+/// [_i4.GalleryCategoryScreen]
+class GalleryCategoryRoute
+    extends _i14.PageRouteInfo<GalleryCategoryRouteArgs> {
+  GalleryCategoryRoute({
+    _i15.Key? key,
+    bool isEvent = false,
+    bool isActivity = false,
+    bool isProject = false,
+    bool isOtherGallery = false,
+    List<_i14.PageRouteInfo>? children,
+  }) : super(
+          GalleryCategoryRoute.name,
+          args: GalleryCategoryRouteArgs(
+            key: key,
+            isEvent: isEvent,
+            isActivity: isActivity,
+            isProject: isProject,
+            isOtherGallery: isOtherGallery,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'GalleryCategoryRoute';
+
+  static _i14.PageInfo page = _i14.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<GalleryCategoryRouteArgs>(
+          orElse: () => const GalleryCategoryRouteArgs());
+      return _i4.GalleryCategoryScreen(
+        key: args.key,
+        isEvent: args.isEvent,
+        isActivity: args.isActivity,
+        isProject: args.isProject,
+        isOtherGallery: args.isOtherGallery,
+      );
+    },
+  );
+}
+
+class GalleryCategoryRouteArgs {
+  const GalleryCategoryRouteArgs({
+    this.key,
+    this.isEvent = false,
+    this.isActivity = false,
+    this.isProject = false,
+    this.isOtherGallery = false,
+  });
+
+  final _i15.Key? key;
+
+  final bool isEvent;
+
+  final bool isActivity;
+
+  final bool isProject;
+
+  final bool isOtherGallery;
+
+  @override
+  String toString() {
+    return 'GalleryCategoryRouteArgs{key: $key, isEvent: $isEvent, isActivity: $isActivity, isProject: $isProject, isOtherGallery: $isOtherGallery}';
+  }
+}
+
+/// generated route for
+/// [_i5.LoginScreen]
+class LoginRoute extends _i14.PageRouteInfo<void> {
+  const LoginRoute({List<_i14.PageRouteInfo>? children})
       : super(
           LoginRoute.name,
           initialChildren: children,
@@ -90,10 +156,10 @@ class LoginRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'LoginRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i4.LoginScreen();
+      return const _i5.LoginScreen();
     },
   );
 }
@@ -109,7 +175,7 @@ class MessagesRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'MessagesRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i5.MessagesScreen();
@@ -128,7 +194,7 @@ class NewMessageRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'NewMessageRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i6.NewMessageScreen();
@@ -150,7 +216,7 @@ class OccupationRoute extends _i12.PageRouteInfo<OccupationRouteArgs> {
 
   static const String name = 'OccupationRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<OccupationRouteArgs>(
@@ -163,7 +229,7 @@ class OccupationRoute extends _i12.PageRouteInfo<OccupationRouteArgs> {
 class OccupationRouteArgs {
   const OccupationRouteArgs({this.key});
 
-  final _i13.Key? key;
+  final _i15.Key? key;
 
   @override
   String toString() {
@@ -182,7 +248,7 @@ class PostsRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'PostsRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i8.PostsScreen();
@@ -201,7 +267,7 @@ class SearchMemberRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'SearchMemberRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i9.SearchMemberScreen();
@@ -220,10 +286,10 @@ class SplashRoute extends _i12.PageRouteInfo<void> {
 
   static const String name = 'SplashRoute';
 
-  static _i12.PageInfo page = _i12.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
-      return const _i11.SplashScreen();
+      return const _i13.SplashScreen();
     },
   );
 }
