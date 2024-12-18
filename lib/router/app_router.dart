@@ -18,6 +18,20 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: ChatRoute.page, path: CHAT),
         AutoRoute(page: NewMessageRoute.page, path: NEW_MESSAGE),
         AutoRoute(page: LoginRoute.page),
+        AutoRoute(page: DirectoryRoute.page),
+        AutoRoute(page: PickCountryCityRoute.page),
+        AutoRoute(page: MemberListRoute.page),
+        AutoRoute(page: RateAppRoute.page),
+        AutoRoute(page: NotificationControlRoute.page),
+        AutoRoute(page: AdvertisementRoute.page),
+        AutoRoute(page: SocialOrganizationRoute.page),
+        AutoRoute(page: SocialMemberListRoute.page),
+        AutoRoute(page: AdminCommitteeRoute.page),
+        AutoRoute(page: PhotoGalleryRoute.page),
+        AutoRoute(page: GalleryCategoryRoute.page),
+        AutoRoute(page: DigitalAdminRoute.page),
+        AutoRoute(page: PickAreaRoute.page),
+        AutoRoute(page: DigitalAdminMembersRoute.page),
       ];
 
   static const String DASHBOARD = '/dashboard';

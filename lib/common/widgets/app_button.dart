@@ -32,7 +32,7 @@ class AppButton extends StatelessWidget {
         ),
         child: isLoading
             ? LoadingAnimationWidget.flickr(
-                leftDotColor: AppColors.primaryPurple,
+                leftDotColor: AppColors.primaryBlue,
                 rightDotColor: AppColors.secondaryPurple,
                 size: 28.r,
               )

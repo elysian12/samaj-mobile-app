@@ -43,7 +43,7 @@ class AppLoader {
               mainAxisSize: MainAxisSize.min,
               children: [
                 LoadingAnimationWidget.flickr(
-                  leftDotColor: AppColors.primaryPurple,
+                  leftDotColor: AppColors.primaryBlue,
                   rightDotColor: AppColors.secondaryPurple,
                   size: 56.r,
                 ),

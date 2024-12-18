@@ -23,7 +23,7 @@ class AppTextStyle {
 
   static TextStyle get heading4 => _baseTextStyle.copyWith(
         fontSize: 16.sp,
-        fontWeight: FontWeight.w700,
+        fontWeight: FontWeight.w500,
       );
 
   static TextStyle get heading5 => _baseTextStyle.copyWith(
@@ -78,6 +78,14 @@ class AppTextStyle {
     return _baseTextStyle.copyWith(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
+      // color: Colors.white,
+    );
+  }
+
+  static TextStyle get bodyText3 {
+    return _baseTextStyle.copyWith(
+      fontSize: 14.sp,
+      fontWeight: FontWeight.w400,
       // color: Colors.white,
     );
   }

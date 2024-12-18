@@ -1,7 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patel_samaj_app/common/extensions/context_ext.dart';
 import 'package:patel_samaj_app/core/styles/style.dart';
+import 'package:patel_samaj_app/router/app_router.gr.dart';
+import 'package:share_plus/share_plus.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -17,19 +20,37 @@ class AppDrawer extends StatelessWidget {
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  _buildDrawerItem('Advertisement', Icons.campaign),
-                  _buildDrawerItem('Matrimony', Icons.favorite),
-                  _buildDrawerItem('Digital Admin', Icons.admin_panel_settings),
-                  _buildDrawerItem('Social service organization', Icons.groups),
+                  _buildDrawerItem(
+                    'Advertisement',
+                    Icons.campaign,
+                    () {
+                      context.router.push(const AdvertisementRoute());
+                    },
+                  ),
+                  _buildDrawerItem('Matrimony', Icons.favorite, () {}),
+                  _buildDrawerItem('Digital Admin', Icons.admin_panel_settings,
+                      () {
+                    context.router.push(const DigitalAdminRoute());
+                  }),
+                  _buildDrawerItem('Social service organization', Icons.groups,
+                      () {
+                    context.router.push(const SocialOrganizationRoute());
+                  }),
                   const Divider(),
-                  _buildDrawerItem('My Samaj', Icons.people),
-                  _buildDrawerItem('About Application', Icons.info),
-                  _buildDrawerItem('About Cohesyn', Icons.business),
-                  _buildDrawerItem('Contact Us', Icons.contact_support),
-                  _buildDrawerItem('Notification Control', Icons.notifications),
-                  _buildDrawerItem('Share Application', Icons.share),
-                  _buildDrawerItem('Feedback', Icons.star),
-                  _buildDrawerItem('Log out', Icons.logout),
+                  _buildDrawerItem('My Samaj', Icons.people, () {}),
+                  _buildDrawerItem('About Application', Icons.info, () {}),
+                  _buildDrawerItem('About Cohesyn', Icons.business, () {}),
+                  _buildDrawerItem('Contact Us', Icons.contact_support, () {}),
+                  _buildDrawerItem('Notification Control', Icons.notifications,
+                      () {
+                    context.router.push(const NotificationControlRoute());
+                  }),
+                  _buildDrawerItem('Share Application', Icons.share, () {
+                    Share.share(
+                        'https://play.google.com/store/apps/details?id=com.cohesyn.patel_samaj');
+                  }),
+                  _buildDrawerItem('Feedback', Icons.star, () {}),
+                  _buildDrawerItem('Log out', Icons.logout, () {}),
                 ],
               ),
             ),
@@ -66,7 +87,7 @@ class AppDrawer extends StatelessWidget {
     );
   }
 
-  Widget _buildDrawerItem(String title, IconData icon) {
+  Widget _buildDrawerItem(String title, IconData icon, VoidCallback onTap) {
     return ListTile(
       leading: Icon(
         icon,
@@ -77,9 +98,7 @@ class AppDrawer extends StatelessWidget {
         title,
         style: AppTextStyle.subtitle1,
       ),
-      onTap: () {
-        // Handle drawer item tap
-      },
+      onTap: onTap,
     );
   }
 }
