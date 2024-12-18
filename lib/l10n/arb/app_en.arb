@@ -29,6 +29,7 @@
   "my_chats": "My Chats",
   "chat_notification_description": "Get instant alerts for your personal conversations",
   "group_messages": "Group Messages",
-  "group_notification_description": "Get instant alerts from your community group"
-  
+  "group_notification_description": "Get instant alerts from your community group",
+  "digital_admin": "Digital Admin"
+
 }
