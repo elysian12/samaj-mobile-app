@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,12 +7,56 @@ import 'package:patel_samaj_app/core/styles/style.dart';
 import 'package:animate_do/animate_do.dart';
 
 @RoutePage()
-class DashboardScreen extends StatelessWidget {
+class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  final List<String> imageUrls = [
+    'https://plus.unsplash.com/premium_photo-1681484213764-8a608699ce73?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2368&auto=format&fit=crop&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'https://images.unsplash.com/photo-1501426026826-31c667bdf23d?q=80&w=2236&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  ];
+
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startAutoSlide();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _startAutoSlide() {
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_currentPage < imageUrls.length - 1) {
+        _currentPage++;
+      } else {
+        _currentPage = 0;
+      }
+      _pageController.animateToPage(
+        _currentPage,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
       body: SafeArea(
         child: Column(
           children: [
@@ -23,7 +69,12 @@ class DashboardScreen extends StatelessWidget {
                     duration: const Duration(milliseconds: 800),
                     child: _buildImageContainer(),
                   ),
-                  const SizedBox(height: 20),
+                  SizedBox(height: 40.h),
+                  Text(
+                    'Categories',
+                    style: AppTextStyle.heading3,
+                  ),
+                  SizedBox(height: 20.h),
                   FadeInUp(
                     duration: const Duration(milliseconds: 600),
                     child: _buildCategories(),
@@ -44,7 +95,7 @@ class DashboardScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-            icon: const Icon(Icons.menu, color: Colors.white),
+            icon: const Icon(Icons.menu, color: Colors.black),
             onPressed: () {},
           ),
           _buildLanguageSelector(),
@@ -134,13 +185,53 @@ class DashboardScreen extends StatelessWidget {
   }
 
   Widget _buildImageContainer() {
-    return Container(
+    return SizedBox(
       height: 200,
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage('https://example.com/your-image.jpg'),
-          fit: BoxFit.cover,
-        ),
+      child: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          PageView.builder(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
+            itemCount: imageUrls.length,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  image: DecorationImage(
+                    image: NetworkImage(imageUrls[index]),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                imageUrls.length,
+                (index) => Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 4),
+                  width: 8,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: _currentPage == index
+                        ? Colors.black
+                        : Colors.grey.withOpacity(0.5),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
