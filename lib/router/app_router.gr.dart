@@ -223,7 +223,7 @@ class SplashRoute extends _i12.PageRouteInfo<void> {
   static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
-      return const _i10.SplashScreen();
+      return const _i11.SplashScreen();
     },
   );
 }
