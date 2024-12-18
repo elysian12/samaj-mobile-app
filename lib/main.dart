@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:patel_samaj_app/data/notifiers/language_notifier.dart';
 import 'package:provider/provider.dart';
 import 'data/di/service_locator.dart';
+import 'router/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         designSize: const Size(390, 844),
         builder: (context, child) => MaterialApp.router(
           debugShowCheckedModeBanner: false,
+          routerConfig: AppRouter().config(),
           title: 'Patel Samaj App',
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),

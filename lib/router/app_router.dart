@@ -10,10 +10,11 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SplashRoute.page, initial: false),
         AutoRoute(page: DashboardRoute.page, path: DASHBOARD, initial: false),
         AutoRoute(page: FamilyRoute.page, path: FAMILY),
-        AutoRoute(page: OccupationRoute.page, path: OCCUPATION),
+        AutoRoute(page: OccupationRoute.page, path: OCCUPATION, initial: true),
         AutoRoute(page: PostsRoute.page, path: POST),
+        AutoRoute(page: SearchMemberRoute.page, path: SEARCH_MEMBER),
         AutoRoute(page: UserProfile.page, path: PROFILE, initial: false),
-        AutoRoute(page: MessagesRoute.page, path: MESSAGES, initial: true),
+        AutoRoute(page: MessagesRoute.page, path: MESSAGES),
         AutoRoute(page: ChatRoute.page, path: CHAT),
         AutoRoute(page: NewMessageRoute.page, path: NEW_MESSAGE),
         AutoRoute(page: LoginRoute.page),
@@ -27,4 +28,5 @@ class AppRouter extends RootStackRouter {
   static const String MESSAGES = '/messages';
   static const String CHAT = '/chat';
   static const String NEW_MESSAGE = '/new_message';
+  static const String SEARCH_MEMBER = '/search_member';
 }
