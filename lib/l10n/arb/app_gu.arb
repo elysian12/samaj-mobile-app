@@ -14,5 +14,20 @@
   "male": "પુરુષ",
   "female": "સ્ત્રી",
   "name": "નામ",
-  "phone_number": "ફોન નંબર"
+  "phone_number": "ફોન નંબર",
+  "notification_control": "સૂચના નિયંત્રણ",
+  "allow_notification": "સૂચનાઓની મંજૂરી આપો",
+  "post": "પોસ્ટ્સ",
+  "post_notification_description": "નમારા નેટવર્કમાં નવીનતમ પોસ્ટ્સથી અપડેટેડ રહો",
+  "useful": "ઉપયોગી માહિતી",
+  "useful_notification_description": "તમારા સમુદાયમાંથી ઉપયોગી ટિપ્સ અને અપડેટ્સ માટે સૂચના મેળવો",
+  "shrandhanjali": "શ્રદ્ધાંજલિ",
+  "memorial_notification_description": "શ્રદ્ધાંજલિ પોસ્ટ્સ અને સ્મૃતિ અપડેટ્સ માટે સૂચનાઓ મેળવો",
+  "besna": "બેસણું",
+  "congratulation": "અભિનંદન",
+  "congratulation_notification_description": "સભિનંદન પોસ્ટ્સ માટે સૂચનાઓ મેળવો",
+  "my_chats": "મારી ચેટ્સ",
+  "chat_notification_description": "તમારી વ્યક્તિગત વાતચીત માટે તાત્કાલિક સૂચનાઓ મેળવો",
+  "group_messages": "ગ્રુપ સંદેશાઓ",
+  "group_notification_description": "તમારા સમુદાય ગ્રુપમાંથી તાત્કાલિક સૂચનાઓ મેળવો"
 }

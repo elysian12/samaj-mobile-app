@@ -14,6 +14,21 @@
   "male": "Male",
   "female": "Female",
   "name": "Name",
-  "phone_number": "Phone No."
+  "phone_number": "Phone No.",
+  "notification_control": "Notification Control",
+  "allow_notification": "Allow Notifications",
+  "post": "Posts",
+  "post_notification_description": "Stay updated with the latest posts in your network",
+  "useful": "Useful Information",
+  "useful_notification_description": "Receive notification for helpful tips and updates from your community",
+  "shrandhanjali": "Shrandhanjali",
+  "memorial_notification_description": "Receive notifications for tribute posts and memorial updates",
+  "besna": "Besna",
+  "congratulation": "Congratulations",
+  "congratulation_notification_description": "Receive notifications for congratulations posts",
+  "my_chats": "My Chats",
+  "chat_notification_description": "Get instant alerts for your personal conversations",
+  "group_messages": "Group Messages",
+  "group_notification_description": "Get instant alerts from your community group"
   
 }
