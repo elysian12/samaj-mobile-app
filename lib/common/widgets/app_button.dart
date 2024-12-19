@@ -9,6 +9,7 @@ class AppButton extends StatelessWidget {
   final bool isLoading;
   final bool isOutlined;
   final double? fontSize;
+  final double? borderRadius;
   const AppButton({
     super.key,
     required this.label,
@@ -16,6 +17,7 @@ class AppButton extends StatelessWidget {
     this.isLoading = false,
     this.isOutlined = false,
     this.fontSize,
+    this.borderRadius,
   });
 
   @override
@@ -28,7 +30,7 @@ class AppButton extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           gradient: isOutlined ? null : AppColors.backGroundGradient,
-          borderRadius: BorderRadius.circular(8.r),
+          borderRadius: BorderRadius.circular(borderRadius?.r ?? 8.r),
         ),
         child: isLoading
             ? LoadingAnimationWidget.flickr(
