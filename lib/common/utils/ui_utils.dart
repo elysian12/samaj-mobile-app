@@ -12,7 +12,7 @@ mixin UiUtils {
         shaderCallback: (bounds) => const LinearGradient(
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
-          colors: [AppColors.primaryPurple, AppColors.secondaryPurple],
+          colors: [AppColors.primaryBlue, AppColors.secondaryPurple],
         ).createShader(bounds),
         child: child,
       );
@@ -66,16 +66,19 @@ mixin UiUtils {
                         ? Image.memory(
                             imgData,
                             fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) => const Icon(Icons.picture_as_pdf_sharp),
+                            errorBuilder: (context, error, stackTrace) =>
+                                const Icon(Icons.picture_as_pdf_sharp),
                           )
                         : Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              purpleGradientChild(const Icon(Icons.cloud_upload, color: AppColors.primaryPurple)),
+                              purpleGradientChild(const Icon(Icons.cloud_upload,
+                                  color: AppColors.primaryBlue)),
                               SizedBox(height: 8.h),
                               Text(
                                 'Click here to upload file',
-                                style: AppTextStyle.bodyText2.copyWith(color: AppColors.primaryPurple),
+                                style: AppTextStyle.bodyText2
+                                    .copyWith(color: AppColors.primaryBlue),
                               ),
                             ],
                           ),
@@ -102,7 +105,9 @@ mixin UiUtils {
               radius: 40.r,
               backgroundColor: Colors.grey[300],
               backgroundImage: imgData != null ? MemoryImage(imgData) : null,
-              child: imgData == null ? Icon(Icons.person, size: 40.r, color: Colors.grey[600]) : null,
+              child: imgData == null
+                  ? Icon(Icons.person, size: 40.r, color: Colors.grey[600])
+                  : null,
             ),
           ),
         ),
@@ -111,7 +116,8 @@ mixin UiUtils {
           child: AppButton(
             label: 'Add Face',
             onPressed: () async {
-              FilePickerResult? result = await FilePicker.platform.pickFiles(type: FileType.image);
+              FilePickerResult? result =
+                  await FilePicker.platform.pickFiles(type: FileType.image);
               if (result != null) {
                 imageData.value = result.files.first.bytes;
                 onImagePicked(result.files.first.bytes);

@@ -36,13 +36,17 @@ class _LocaleSwitchWidgetState extends State<LocaleSwitchWidget> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
               decoration: BoxDecoration(
-                color: languageNotifier.locale == const Locale('en') ? AppColors.primaryPurple : Colors.transparent,
+                color: languageNotifier.locale == const Locale('en')
+                    ? AppColors.primaryBlue
+                    : Colors.transparent,
                 borderRadius: BorderRadius.circular(6.r),
               ),
               child: Text(
                 'Eng',
                 style: AppTextStyle.bodyText2.copyWith(
-                  color: languageNotifier.locale == const Locale('en') ? Colors.white : AppColors.fontColor,
+                  color: languageNotifier.locale == const Locale('en')
+                      ? Colors.white
+                      : AppColors.fontColor,
                 ),
               ),
             ),
@@ -58,13 +62,17 @@ class _LocaleSwitchWidgetState extends State<LocaleSwitchWidget> {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 4.h),
               decoration: BoxDecoration(
-                color: languageNotifier.locale == const Locale('gu') ? AppColors.primaryPurple : Colors.transparent,
+                color: languageNotifier.locale == const Locale('gu')
+                    ? AppColors.primaryBlue
+                    : Colors.transparent,
                 borderRadius: BorderRadius.circular(6.r),
               ),
               child: Text(
                 'Guj',
                 style: AppTextStyle.bodyText2.copyWith(
-                  color: languageNotifier.locale == const Locale('gu') ? Colors.white : AppColors.fontColor,
+                  color: languageNotifier.locale == const Locale('gu')
+                      ? Colors.white
+                      : AppColors.fontColor,
                 ),
               ),
             ),

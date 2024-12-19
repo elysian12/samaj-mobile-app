@@ -70,14 +70,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
   final aboutSelfController = TextEditingController();
   final expectationController = TextEditingController();
 
-  final List<TextEditingController> residentAddressControllers = [TextEditingController()];
+  final List<TextEditingController> residentAddressControllers = [
+    TextEditingController()
+  ];
   final List<OccupationControllers> occupationControllers = [];
 
   final ValueNotifier<String?> _gender = ValueNotifier(null);
   bool? _isPlanningToGetMarried;
 
-  final List<String> bloodGroupsList = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
-  final List<String> maritalStatusList = ['Single', 'Married', 'Divorced', 'Widowed'];
+  final List<String> bloodGroupsList = [
+    'A+',
+    'A-',
+    'B+',
+    'B-',
+    'AB+',
+    'AB-',
+    'O+',
+    'O-'
+  ];
+  final List<String> maritalStatusList = [
+    'Single',
+    'Married',
+    'Divorced',
+    'Widowed'
+  ];
   final List<String> skinToneList = ['Fair', 'Medium', 'Dark'];
   Member? _memberModel;
 
@@ -106,7 +122,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
               child: Text(
                 '+ Add Address',
                 style: AppTextStyle.bodyText2.copyWith(
-                  color: AppColors.primaryPurple,
+                  color: AppColors.primaryBlue,
                 ),
               ),
             ),
@@ -144,7 +160,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
   }
 
   Widget buildOccupationFields() {
-    List<String> occupationTypes = OccupationType.values.map((e) => e.name.capitalize()).toList();
+    List<String> occupationTypes =
+        OccupationType.values.map((e) => e.name.capitalize()).toList();
     final occupationTypesController = MultiSelectController<int>();
     Uint8List? imageData;
 
@@ -197,7 +214,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                           ),
                         ),
                         IconButton(
-                          icon: const Icon(Icons.remove_circle_outline, color: Colors.red),
+                          icon: const Icon(Icons.remove_circle_outline,
+                              color: Colors.red),
                           onPressed: () {
                             setState(() {
                               occupationControllers.removeAt(idx);
@@ -227,17 +245,26 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
               ),
               AppTextField().buildTextField(
                 controller.nameController,
-                controller.professionalType == 'Job' ? 'Job Name' : 'Business Name',
+                controller.professionalType == 'Job'
+                    ? 'Job Name'
+                    : 'Business Name',
               ),
               AppTextField().buildTextField(
                 controller.nameGujController,
-                controller.professionalType == 'Job' ? 'Job Name in Gujarati' : 'Business Name in Gujarati',
+                controller.professionalType == 'Job'
+                    ? 'Job Name in Gujarati'
+                    : 'Business Name in Gujarati',
               ),
               AppTextField().buildMultiDropdown(
                 controller: occupationTypesController,
                 isSingleSelect: false,
-                items: [DropdownItem(label: 'Engineer', value: 0), DropdownItem(label: 'Doctor', value: 1)],
-                label: controller.professionalType == 'Job' ? 'Job Title' : 'Business/Occupation Type',
+                items: [
+                  DropdownItem(label: 'Engineer', value: 0),
+                  DropdownItem(label: 'Doctor', value: 1)
+                ],
+                label: controller.professionalType == 'Job'
+                    ? 'Job Title'
+                    : 'Business/Occupation Type',
               ),
               SizedBox(height: 16.h),
               Column(
@@ -247,7 +274,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        controller.professionalType == 'Job' ? 'Job Address' : 'Business Address',
+                        controller.professionalType == 'Job'
+                            ? 'Job Address'
+                            : 'Business Address',
                         style: AppTextStyle.heading4.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
@@ -255,7 +284,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                       TextButton(
                         onPressed: () {
                           setState(() {
-                            controller.addressController.add(TextEditingController());
+                            controller.addressController
+                                .add(TextEditingController());
                           });
                         },
                         child: Text(
@@ -276,14 +306,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                         Expanded(
                           child: AppTextField().buildTextField(
                             addressController,
-                            entry.key == 0 ? '' : (controller.professionalType == 'Job' ? 'Job Address ${entry.key + 1}' : 'Business Address ${entry.key + 1}'),
+                            entry.key == 0
+                                ? ''
+                                : (controller.professionalType == 'Job'
+                                    ? 'Job Address ${entry.key + 1}'
+                                    : 'Business Address ${entry.key + 1}'),
                           ),
                         ),
                         controller.addressController.length > 1
                             ? IconButton(
                                 onPressed: () {
                                   setState(() {
-                                    controller.addressController.removeAt(entry.key);
+                                    controller.addressController
+                                        .removeAt(entry.key);
                                   });
                                 },
                                 icon: const Icon(Icons.delete),
@@ -295,8 +330,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                 ],
               ),
               uploadFileContainer(
-                onPickedImage: (imageData) => setState(() => imageData = imageData),
-                label: controller.professionalType == 'Job' ? 'Job/Family Poster' : 'Business/Family Poster',
+                onPickedImage: (imageData) =>
+                    setState(() => imageData = imageData),
+                label: controller.professionalType == 'Job'
+                    ? 'Job/Family Poster'
+                    : 'Business/Family Poster',
                 initialImage: imageData,
               ),
             ],
@@ -324,8 +362,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                     builder: (context, imgData, _) => CircleAvatar(
                       radius: 40.r,
                       backgroundColor: Colors.grey[300],
-                      backgroundImage: imgData != null ? MemoryImage(imgData) : null,
-                      child: imgData == null ? Icon(Icons.person, size: 40.r, color: Colors.grey[600]) : null,
+                      backgroundImage:
+                          imgData != null ? MemoryImage(imgData) : null,
+                      child: imgData == null
+                          ? Icon(Icons.person,
+                              size: 40.r, color: Colors.grey[600])
+                          : null,
                     ),
                   ),
                 ),
@@ -417,19 +459,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
             ),
             AppTextField().buildMultiDropdown(
               controller: bloodGroupController,
-              items: bloodGroupsList.asMap().entries.map((entry) => DropdownItem(label: entry.value, value: entry.key)).toList(),
+              items: bloodGroupsList
+                  .asMap()
+                  .entries
+                  .map((entry) =>
+                      DropdownItem(label: entry.value, value: entry.key))
+                  .toList(),
               label: 'Blood Group',
               isSingleSelect: true,
               onSelectionChange: (values) {
                 if (values.isNotEmpty) {
-                  _memberModel?.bloodGroup = bloodGroupsList[values.first]; // Assuming values contain the index
+                  _memberModel?.bloodGroup = bloodGroupsList[
+                      values.first]; // Assuming values contain the index
                 }
               },
             ),
             SizedBox(height: 16.h),
             AppTextField().buildMultiDropdown(
               controller: maritalStatusController,
-              items: maritalStatusList.asMap().entries.map((entry) => DropdownItem(label: entry.value, value: entry.key)).toList(),
+              items: maritalStatusList
+                  .asMap()
+                  .entries
+                  .map((entry) =>
+                      DropdownItem(label: entry.value, value: entry.key))
+                  .toList(),
               label: 'Marital Status',
               isSingleSelect: true,
               onSelectionChange: (values) {
@@ -444,7 +497,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
               birthDateController,
               'Birth Date',
               onDateSelected: (date) {
-                birthDateController.text = DateFormat('dd/MM/yyyy').format(date);
+                birthDateController.text =
+                    DateFormat('dd/MM/yyyy').format(date);
               },
             ),
           ],
@@ -463,42 +517,60 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: countryController,
-          items: [DropdownItem(label: 'India', value: 0), DropdownItem(label: 'USA', value: 1)],
+          items: [
+            DropdownItem(label: 'India', value: 0),
+            DropdownItem(label: 'USA', value: 1)
+          ],
           label: 'Country',
           isSingleSelect: true,
         ),
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: cityController,
-          items: [DropdownItem(label: 'Jaipur', value: 0), DropdownItem(label: 'Udaipur', value: 1)],
+          items: [
+            DropdownItem(label: 'Jaipur', value: 0),
+            DropdownItem(label: 'Udaipur', value: 1)
+          ],
           label: 'City',
           isSingleSelect: true,
         ),
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: nativeVillageController,
-          items: [DropdownItem(label: 'Rajsamand', value: 0), DropdownItem(label: 'Village1', value: 1)],
+          items: [
+            DropdownItem(label: 'Rajsamand', value: 0),
+            DropdownItem(label: 'Village1', value: 1)
+          ],
           label: 'Native Village',
           isSingleSelect: true,
         ),
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: mosalVillageController,
-          items: [DropdownItem(label: 'Mosal', value: 0), DropdownItem(label: 'Village2', value: 1)],
+          items: [
+            DropdownItem(label: 'Mosal', value: 0),
+            DropdownItem(label: 'Village2', value: 1)
+          ],
           label: 'Mosal Village',
           isSingleSelect: true,
         ),
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: maternalVillageController,
-          items: [DropdownItem(label: 'Maternal', value: 0), DropdownItem(label: 'Village3', value: 1)],
+          items: [
+            DropdownItem(label: 'Maternal', value: 0),
+            DropdownItem(label: 'Village3', value: 1)
+          ],
           label: 'Maternal Village',
           isSingleSelect: true,
         ),
         SizedBox(height: 16.h),
         AppTextField().buildMultiDropdown(
           controller: pragatiMandalController,
-          items: [DropdownItem(label: 'Pragati', value: 0), DropdownItem(label: 'Mandal4', value: 1)],
+          items: [
+            DropdownItem(label: 'Pragati', value: 0),
+            DropdownItem(label: 'Mandal4', value: 1)
+          ],
           label: 'Pragati Mandal',
           isSingleSelect: true,
         ),
@@ -555,13 +627,19 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
           ),
           AppTextField().buildMultiDropdown(
             controller: skinColorController,
-            items: skinToneList.asMap().entries.map((entry) => DropdownItem(label: entry.value, value: entry.key)).toList(),
+            items: skinToneList
+                .asMap()
+                .entries
+                .map((entry) =>
+                    DropdownItem(label: entry.value, value: entry.key))
+                .toList(),
             label: 'Skin Color',
             hintText: 'Skin Color',
             isSingleSelect: true,
             onSelectionChange: (values) {
               if (values.isNotEmpty) {
-                _memberModel?.skinColor = skinToneList[values.first]; // Assuming values contain the index
+                _memberModel?.skinColor = skinToneList[
+                    values.first]; // Assuming values contain the index
               }
             },
           ),
@@ -624,7 +702,10 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                   builder: (context, value, child) {
                     return Stepper(
                       currentStep: value,
-                      connectorColor: WidgetStateProperty.resolveWith((states) => states.contains(WidgetState.selected) ? AppColors.secondaryPurple : AppColors.grey),
+                      connectorColor: WidgetStateProperty.resolveWith(
+                          (states) => states.contains(WidgetState.selected)
+                              ? AppColors.secondaryPurple
+                              : AppColors.grey),
                       // connectorThickness: 2.h,
                       elevation: 0,
                       stepIconMargin: EdgeInsets.symmetric(horizontal: 1.w),
@@ -651,7 +732,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                           isActive: value >= 3,
                         ),
                       ],
-                      controlsBuilder: (context, details) => const SizedBox.shrink(),
+                      controlsBuilder: (context, details) =>
+                          const SizedBox.shrink(),
                     );
                   }),
             ),
@@ -660,7 +742,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> with UiUtils {
                 valueListenable: currentStep,
                 builder: (context, value, child) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0, vertical: 16.0),
                     child: AppButton(
                       label: 'Continue',
                       onPressed: () {

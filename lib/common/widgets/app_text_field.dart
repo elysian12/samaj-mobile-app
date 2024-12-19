@@ -43,17 +43,19 @@ class AppTextField {
           child: TextFormField(
             controller: controller,
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.h),
               hintText: hintText ?? label,
               border: outlineInputBorder,
               enabledBorder: outlineInputBorder,
               focusedBorder: outlineInputBorder.copyWith(
                 borderSide: const BorderSide(
-                  color: AppColors.primaryPurple,
+                  color: AppColors.primaryBlue,
                 ),
               ),
             ),
-            inputFormatters: isNumber ? [FilteringTextInputFormatter.digitsOnly] : null,
+            inputFormatters:
+                isNumber ? [FilteringTextInputFormatter.digitsOnly] : null,
             readOnly: readOnly,
             scrollPadding: EdgeInsets.zero,
             maxLines: maxLines,
@@ -72,7 +74,8 @@ class AppTextField {
     String hintText = 'Enter your phone number',
     // Function(String) onSubmitted,
   }) {
-    ValueNotifier<String> selectedCountryCodeNotifier = ValueNotifier<String>('+91'); // Default country code
+    ValueNotifier<String> selectedCountryCodeNotifier =
+        ValueNotifier<String>('+91'); // Default country code
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,12 +86,14 @@ class AppTextField {
           height: 0.1.sh,
           child: TextFormField(
             controller: controller,
-            style: AppTextStyle.bodyText1.copyWith(color: AppColors.black, fontSize: 16.sp),
+            style: AppTextStyle.bodyText1
+                .copyWith(color: AppColors.black, fontSize: 16.sp),
             keyboardType: TextInputType.phone,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             validator: (value) => value!.isEmpty ? 'Required' : null,
             decoration: InputDecoration(
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
               hintText: hintText,
               hintStyle: AppTextStyle.caption,
               prefixIconConstraints: BoxConstraints(maxWidth: 0.25.sw),
@@ -98,14 +103,16 @@ class AppTextField {
                     initialSelection: '+91', // Set initial country code to +91
                     showFlag: false,
                     onChanged: (countryCode) {
-                      selectedCountryCodeNotifier.value = countryCode.dialCode!; // Update selected country code
+                      selectedCountryCodeNotifier.value =
+                          countryCode.dialCode!; // Update selected country code
                       selectedCountryCodeNotifier.notifyListeners();
                     },
                     textStyle: AppTextStyle.subtitle1,
                   ),
                   SizedBox(
                     height: 0.03.sh,
-                    child: const VerticalDivider(width: 4, color: AppColors.black),
+                    child:
+                        const VerticalDivider(width: 4, color: AppColors.black),
                   ),
                 ],
               ),
@@ -161,7 +168,7 @@ class AppTextField {
                 enabledBorder: outlineInputBorder,
                 focusedBorder: outlineInputBorder.copyWith(
                   borderSide: const BorderSide(
-                    color: AppColors.primaryPurple,
+                    color: AppColors.primaryBlue,
                   ),
                 ),
                 suffixIcon: isReadOnly
@@ -175,13 +182,14 @@ class AppTextField {
                             lastDate: DateTime.now(),
                           );
                           if (date != null) {
-                            controller.text = DateFormat('dd-MM-yyyy').format(date);
+                            controller.text =
+                                DateFormat('dd-MM-yyyy').format(date);
                             onDateSelected(date);
                           }
                         },
                         icon: const Icon(
                           Icons.calendar_today_outlined,
-                          color: AppColors.primaryPurple,
+                          color: AppColors.primaryBlue,
                         ),
                       ),
               ),
@@ -218,7 +226,7 @@ class AppTextField {
           enabled: true,
           searchEnabled: true,
           chipDecoration: ChipDecoration(
-            backgroundColor: AppColors.primaryPurple,
+            backgroundColor: AppColors.primaryBlue,
             wrap: true,
             runSpacing: 5,
             spacing: 10,
@@ -256,7 +264,8 @@ class AppTextField {
             ),
           ),
           dropdownItemDecoration: DropdownItemDecoration(
-            selectedIcon: const Icon(Icons.check_box, color: AppColors.primaryPurple),
+            selectedIcon:
+                const Icon(Icons.check_box, color: AppColors.primaryBlue),
             disabledIcon: Icon(Icons.lock, color: Colors.grey.shade300),
           ),
           validator: (value) {
@@ -271,12 +280,15 @@ class AppTextField {
     );
   }
 
-  Widget buildRadioField(String label, List<String> options, Function(String) onChanged, String groupValue) {
+  Widget buildRadioField(String label, List<String> options,
+      Function(String) onChanged, String groupValue) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Text(label, style: AppTextStyle.bodyText1.copyWith(fontWeight: FontWeight.w600)),
+        Text(label,
+            style:
+                AppTextStyle.bodyText1.copyWith(fontWeight: FontWeight.w600)),
         SizedBox(height: 8.h),
         SizedBox(
           height: 70.h,
