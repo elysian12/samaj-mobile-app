@@ -16,6 +16,7 @@ abstract class AppColors {
   static const greyMedium = Color(0xffAEAEAE);
   static const Color primaryPurple1 = Color(0xff9181F4);
   static const Color secondaryPurple1 = Color(0xff5038ED);
+  static const black = Color(0xff121212);
 
   static const backGroundGradient = LinearGradient(
     colors: [

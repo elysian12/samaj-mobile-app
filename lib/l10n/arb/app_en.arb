@@ -30,6 +30,15 @@
   "chat_notification_description": "Get instant alerts for your personal conversations",
   "group_messages": "Group Messages",
   "group_notification_description": "Get instant alerts from your community group",
-  "digital_admin": "Digital Admin"
-
+  "digital_admin": "Digital Admin",
+  "login": "Login",
+  "send_otp": "Send OTP",
+  "mobile_number": "Mobile Number",
+  "please_enter_your_mobile_number_to_receive_an_otp_for_verification": "Please enter your mobile number to receive an OTP for verification.",
+  "enter_your_phone_number": "Enter your phone number",
+  "otp_sent_to_your_mobile_number": "OTP sent to your mobile number",
+  "enter_otp_sent_to_your_mobile_number": "Enter OTP sent to your mobile number",
+  "please_enter_6_digit_verification_code_we_sent_to_your_mobile": "Please, enter 6 digit verifiction code we sent to your mobile",
+  "otp_verification": "OTP Verification",
+  "verify": "Verify"
 }
